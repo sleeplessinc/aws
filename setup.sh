@@ -14,7 +14,7 @@ if ! test -e .ssh/id_rsa ; then
 fi
 
 if ! test -e "$repo" ; then
-		yes | yum install git
+		sudo yum install git
         git config --global user.name "aws"
         git config --global user.email "aws@$host"
         echo -n "GitHub user name? " ; read user
