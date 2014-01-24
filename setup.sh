@@ -14,7 +14,7 @@ if ! test -e .ssh/id_rsa ; then
 fi
 
 if ! test -e "$repo" ; then
-	sudo yes | yum install git
+	sudo yum install git
 	host=`hostname`
 	git config --global user.name "aws"
 	git config --global user.email "aws@$host"
