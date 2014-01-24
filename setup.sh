@@ -22,7 +22,7 @@ if ! test -e "$repo" ; then
 	echo -n "GitHub repo name? " ; read repo
 	git clone "git@github.com:$user/$repo.git"
 	cd "$repo"
-	if ! test -e setup.sh ; then
+	if test -e setup.sh ; then
 		source setup.sh
 	fi
 fi
