@@ -5,14 +5,15 @@ cd
 if ! test -e .ssh/id_rsa ; then
 	rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 	ssh-keygen
-	echo
-	echo "Add this deployment key to your repo:"
-	echo
-	cat .ssh/id_rsa.pub
-	echo
-	echo "Type ENTER when done: "
-	read foo
 fi
+
+echo
+echo "Add this deployment key to your repo:"
+echo
+cat .ssh/id_rsa.pub
+echo
+echo "Type ENTER when done: "
+read foo
 
 if ! test -e "$repo" ; then
 	sudo yum -y install git
