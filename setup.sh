@@ -3,6 +3,7 @@
 cd
 
 if ! test -e .ssh/id_rsa ; then
+	rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 	ssh-keygen
 	echo
 	echo "Add this deployment key to your repo:"
