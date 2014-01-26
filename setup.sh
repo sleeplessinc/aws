@@ -1,8 +1,11 @@
 #!/bin/bash
 
 cd
-echo "This is going to do a lot of clobbering."
-echo -n "Are you quite sure you want to do this? "
+echo "+----------------------------------------------+"
+echo "|   THIS IS GOING TO DO A LOT OF CLOBBERING!   |"
+echo "+----------------------------------------------+"
+echo
+echo -n "Are you quite sure you want to continue? "
 read a
 if [ "$a" = "yes" ] ; then
 
