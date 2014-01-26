@@ -1,28 +1,23 @@
 #!/bin/bash
 
 cd
+echo "This is going to do a lot of clobbering."
+echo -n "Are you quite sure you want to do this? "
+read a
+if [ "$a" = "yes" ] ; then
 
-sk="~/.ssh/id_rsa"
-if test -e $sk ; then
-	echo -n "Clobber existing ssh key? "
-	read a
-	if [ "$a" = "yes" ] ; then
-		rm -f $sk $sk.pub
-	fi
-fi
 
-ssh-keygen -f $sk
+rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+ssh-keygen -f ~/.ssh/id_rsa
 
 
 echo
-echo -n "Need the deployment key for repo? "
+echo "Add deployment key to repo:"
+echo
+cat .ssh/id_rsa.pub
+echo
+echo -n "Type ENTER when done "
 read a
-if [ "$a" = "yes" ] ; then
-	cat .ssh/id_rsa.pub
-	echo
-	echo "Type ENTER when done: "
-	read a
-fi
 
 
 sudo yum -y install git
@@ -31,22 +26,20 @@ git config --global user.name "aws"
 git config --global user.email "aws@$host"
 echo -n "GitHub user name? " ; read user
 echo -n "GitHub repo name? " ; read repo
+
 if test -e "$repo" ; then
-	echo -n "Clobber existing repo clone? "
-	read a
-	if [ "$a" = "yes" ] ; then
-		git clone "git@github.com:$user/$repo.git"
-		echo -n "Re-run setup.sh? "
-		read a
-		if [ "$a" = "yes" ] ; then
-			cd "$repo"
-			if test -e setup.sh ; then
-				source setup.sh
-			else
-				echo "There is no setup.sh for this repo.  Sorry.";
-			fi
-			cd
-		fi
-	fi
+	rm -rfv "$repo"
 fi
+
+git clone "git@github.com:$user/$repo.git"
+cd "$repo"
+if test -e setup.sh ; then
+	source setup.sh
+else
+	echo "No setup.sh found."
+fi
+
+cd
+
+echo "Done."
 
