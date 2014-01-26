@@ -8,9 +8,10 @@ if test -e $sk ; then
 	read a
 	if [ "$a" = "yes" ] ; then
 		rm -f $sk $sk.pub
-		ssh-keygen -f $sk
 	fi
 fi
+
+ssh-keygen -f $sk
 
 
 echo
