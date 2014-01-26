@@ -2,12 +2,13 @@
 
 cd
 
-if test -e ~/.ssh/id_rsa ; then
+sk="~/.ssh/id_rsa"
+if test -e $sk ; then
 	echo -n "Clobber existing ssh key? "
 	read a
 	if [ "$a" = "yes" ] ; then
-		rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
-		ssh-keygen -f ~/.ssh/id_rsa
+		rm -f $sk $sk.pub
+		ssh-keygen -f $sk
 	fi
 fi
 
