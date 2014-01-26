@@ -6,8 +6,9 @@ echo "+----------------------------------------------+"
 echo "|   THIS IS GOING TO DO A LOT OF CLOBBERING!   |"
 echo "+----------------------------------------------+"
 echo
-echo -n "Are you quite sure you want to continue? "
+echo -n "Are you quite sure you want to continue? [yes|no] "
 read a
+
 if [ "$a" = "yes" ] ; then
 
 	rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
@@ -45,3 +46,4 @@ if [ "$a" = "yes" ] ; then
 	echo "Done."
 
 fi
+
