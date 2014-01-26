@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd
+echo
 echo "+----------------------------------------------+"
 echo "|   THIS IS GOING TO DO A LOT OF CLOBBERING!   |"
 echo "+----------------------------------------------+"
