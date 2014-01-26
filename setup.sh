@@ -12,7 +12,7 @@ read a
 if [ "$a" = "yes" ] ; then
 
 	rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
-	ssh-keygen -f ~/.ssh/id_rsa
+	ssh-keygen -f ~/.ssh/id_rsa -P ""
 
 	echo
 	echo "Add deployment key to repo:"
