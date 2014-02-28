@@ -23,9 +23,11 @@ echo -n "Type ENTER when done "
 read a
 
 sudo yum -y install git
+
 host=`hostname`
-git config --global user.name "aws"
-git config --global user.email "aws@$host"
+git config --global user.name "server"
+git config --global user.email "server@$host.com"
+
 echo -n "GitHub user name? " ; read user
 echo -n "GitHub repo name? " ; read repo
 
