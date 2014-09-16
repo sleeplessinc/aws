@@ -1,8 +1,10 @@
 #!/bin/bash
 
 echo 
+echo "----------------------------------------"
 echo "THIS IS GOING TO CLOBBER A LOT OF STUFF!"
-echo "Type ^C to cancel"
+echo "----------------------------------------"
+echo -n "Type ENTER to continue or ^C to cancel: "
 read foo
 
 rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
