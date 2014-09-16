@@ -1,15 +1,9 @@
 #!/bin/bash
 
 echo 
-echo "----------------------------------------"
 echo "THIS IS GOING TO CLOBBER A LOT OF STUFF!"
-echo "----------------------------------------"
-echo -n "Sure you want to proceed? "
-read a
-if [ "$a" != "yes" ] ; then
-	return 1
-fi
-
+echo "Type ^C to cancel"
+read foo
 
 rm -f ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 ssh-keygen -f ~/.ssh/id_rsa -P ""
